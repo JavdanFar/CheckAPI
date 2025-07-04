@@ -1,0 +1,370 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import url('colors.css');
+
+
+/* =========================== General Styles Section =========================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    list-style: none;
+    /* outline: 2px solid red; */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+}
+
+/* =========================== Header Section =========================== */
+
+header {
+    height: 60px;
+    background-color: var(--color-foreground);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    margin-bottom: 1px;
+}
+
+header h1 {
+    font-size: 26px;
+}
+
+header button {
+    font-size: 26px;
+    color: var(--color-text);
+
+    & :hover {
+        color: var(--color-text-supporting);
+    }
+}
+
+/* =========================== Main Section =========================== */
+
+main {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 110px);
+}
+
+main>aside {
+    width: 26%;
+    background-color: var(--color-foreground);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+main>section {
+    width: 74%;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+/* =========================== Card Container Section =========================== */
+
+.card-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-foreground);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    padding: 10px 20px;
+}
+
+/* =========================== URL Form Section =========================== */
+
+.url-form {
+    display: flex;
+    gap: 0;
+    width: 100%;
+    margin: 18px 0;
+}
+
+.url-form select {
+    color: var(--color-text);
+    background-color: transparent;
+    border: 2px solid var(--color-mist-extra);
+    border-radius: 8px 0 0 8px;
+    padding: 0 16px;
+    transition: 0.3s;
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"%3E%3Cpath d="M3 4l3 3 3-3" stroke="%23B1B1B1" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E');
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+
+    &:focus {
+        border-color: var(--color-text-primary);
+    }
+}
+
+.url-form select option {
+    color: var(--color-text);
+    background-color: var(--color-foreground);
+    border: 1px solid var(--color-text-supporting);
+    border-radius: 8px 0 0 8px;
+    padding: 16px;
+    transition: 0.3s;
+
+    &:focus {
+        border: 1px solid var(--color-text-primary);
+    }
+}
+
+.url-form input[type="url"] {
+    color: var(--color-text);
+    background-color: var(--color-transparent);
+    border: 2px solid var(--color-mist-extra);
+    border-left: 0;
+    border-radius: 0 8px 8px 0;
+    padding: 16px;
+    flex: 1;
+
+    &:focus {
+        border: 2px solid var(--color-text-primary);
+    }
+}
+
+.url-form button {
+    font-weight: bolder;
+    color: var(--color-background);
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    padding: 16px 30px;
+    margin: 0 0 0 8px;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: var(--color-primary-hover);
+    }
+}
+
+/* =========================== Tabs Section =========================== */
+.tabs-section {
+    width: 100%;
+}
+
+.tabs-section>nav {
+    border-bottom: 1px solid var(--color-mist-extra);
+
+}
+
+.tabs-section>nav button {
+    color: var(--color-text);
+    font-size: 14px;
+    margin: 2px 32px 0 0;
+    padding: 8px 0;
+
+    &:hover {
+        color: var(--color-primary-hover);
+    }
+}
+
+.tabs-section>div {
+    margin: 16px 0;
+}
+
+.active-btn {
+    border-bottom: 2px solid var(--color-text-primary);
+    font-weight: bold;
+}
+
+
+/* =========================== Params Tabs Section =========================== */
+.params-tab {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.params-tab p {
+    align-self: self-start;
+    margin: 4px 0 12px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--color-text-supporting);
+}
+
+.params-tab table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    color: var(--color-text);
+}
+
+.params-tab th,
+td {
+    border: 1px solid var(--color-mist-extra);
+    text-align: left;
+    text-align: left;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.params-tab td {
+    padding: 6px;
+}
+
+.params-tab td:first-child {
+    text-align: center;
+}
+
+.params-tab input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+    filter: grayscale();
+}
+
+
+.params-tab thead  {
+    background-color: var(--bg-primary) !important;
+}
+
+.params-tab tbody tr:nth-child(even) {
+    background-color: var(--color-foreground-extra);
+}
+
+.params-tab tbody tr:hover {
+    background-color: var(--color-mist-extra);
+}
+
+.params-tab input {
+    background-color: transparent;
+    width: 100%;
+}
+
+.col1 {
+    width: 3%;
+    text-align: center!important;
+}
+
+.col2 {
+    width: 20%;
+}
+
+.col3 {
+    width: 70%;
+}
+
+.fa-trash-xmark {
+    color: var(--color-alert);
+    font-size: 18px;
+    margin: 0 8px;
+
+    &:hover {
+        color: var(--color-alert-hover);
+    }
+}
+
+.params-tab td:last-child {
+    position: relative;
+}
+
+.params-tab td button {
+    position: absolute;
+    right: 6px;
+}
+
+/* =========================== Footer Section =========================== */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-foreground);
+    height: 50px;
+    padding: 4px 20px;
+    box-shadow: 0 0 10px #0000001a;
+    width: 100%;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-logo img {
+    height: 30px;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--color-text);
+
+    &:hover {
+        color: var(--color-primary-hover);
+        transition: all 0.4s;
+    }
+}
+
+/* =========================== Responsiv Section =========================== */
+
+@media (min-width: 1200px) {
+    main aside {
+        width: 16%;
+    }
+
+    main section {
+        width: 84%;
+    }
+}

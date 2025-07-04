@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/styles/style.css" />
+    <link rel="stylesheet" href="./Assets/icons/css/all.css" />
+    <title>CheckAPI</title>
+  </head>
+  <body data-theme="">
+    <!-- ***************************** Header Section ***************************** -->
+    <header>
+      <h1>Check API</h1>
+      <button id="themeBTN">
+        <i id="themeIcon" class="fa fa-solid fa-moon"></i>
+      </button>
+    </header>
+
+    <main>
+      <aside></aside>
+      <!-- ***************************** Input URL Card Section ***************************** -->
+      <section>
+        <div class="card-container">
+          <form class="url-form" action="">
+            <select name="methods" id="methods">
+              <option value="get">GET</option>
+              <option value="post">POST</option>
+              <option value="put">PUT</option>
+              <option value="delete">DELETE</option>
+            </select>
+
+            <input type="url" name="urlInput" id="urlInput" placeholder="Enter URL or paste text" />
+            <button type="button" id="sendUrlBTN">Send</button>
+          </form>
+
+          <!-- ***************************** Tabs Section ***************************** -->
+          <div class="tabs-section">
+            <nav>
+              <button id="paramsBTN">Params</button>
+              <button id="headersBTN">Headers</button>
+              <button id="bodyBTN">Body</button>
+            </nav>
+
+            <div class="params-tab" id="paramsTab">
+              <p>Query Params</p>
+              <table>
+                <thead>
+                  <tr>
+                    <th class="col1">#</th>
+                    <th class="col2">Key</th>
+                    <th class="col3">Value</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody">
+                  <tr data-id="1">
+                    <td><input type="checkbox" /></td>
+                    <td>
+                      <input type="text" placeholder="key" />
+                    </td>
+                    <td>
+                      <input type="text" placeholder="value" />
+                      <button>
+                        <i class="fa-regular fa-trash-xmark"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="headersTab">headers</div>
+            <div id="bodyTab">body</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ***************************** Footer Section ***************************** -->
+    <footer>
+      <div class="footer-logo">
+        <img id="logo" src="./Assets/logo/logo-dark.png" height="10" alt="Logo" />
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com/JavdanFar">Github</a>
+
+        <p>v1.0.0</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./Assets/scripts/script.js"></script>
+  </body>
+</html>
