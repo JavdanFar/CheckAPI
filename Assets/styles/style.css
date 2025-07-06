@@ -194,7 +194,6 @@ main>section {
 
 .tabs-section>nav {
     border-bottom: 1px solid var(--color-mist-extra);
-
 }
 
 .tabs-section>nav button {
@@ -226,6 +225,12 @@ main>section {
     align-items: center;
 }
 
+.table-container {
+    width: 100%;
+    max-height: 420px;
+    overflow-y: auto;
+}
+
 .params-tab p {
     align-self: self-start;
     margin: 4px 0 12px 0;
@@ -236,20 +241,25 @@ main>section {
 
 .params-tab table {
     width: 100%;
-    border-collapse: collapse;
+    border: 1px solid var(--color-mist-extra);
     border-spacing: 0;
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
     color: var(--color-text);
 }
 
 .params-tab th,
-td {
-    border: 1px solid var(--color-mist-extra);
+.params-tab td {
+    border-right: 1px solid var(--color-mist-extra);
     text-align: left;
     text-align: left;
     padding: 8px;
     font-size: 14px;
+}
+
+.params-tab th:last-child,
+.params-tab td:last-child {
+    border-right: none;
 }
 
 .params-tab td {
@@ -266,8 +276,7 @@ td {
     filter: grayscale();
 }
 
-
-.params-tab thead  {
+.params-tab thead {
     background-color: var(--bg-primary) !important;
 }
 
@@ -277,24 +286,6 @@ td {
 
 .params-tab tbody tr:hover {
     background-color: var(--color-mist-extra);
-}
-
-.params-tab input {
-    background-color: transparent;
-    width: 100%;
-}
-
-.col1 {
-    width: 3%;
-    text-align: center!important;
-}
-
-.col2 {
-    width: 20%;
-}
-
-.col3 {
-    width: 70%;
 }
 
 .fa-trash-xmark {
@@ -307,6 +298,24 @@ td {
     }
 }
 
+.params-tab input {
+    background-color: transparent;
+    width: 100%;
+}
+
+.col1 {
+    width: 3%;
+    text-align: center !important;
+}
+
+.col2 {
+    width: 20%;
+}
+
+.col3 {
+    width: 70%;
+}
+
 .params-tab td:last-child {
     position: relative;
 }
@@ -314,6 +323,12 @@ td {
 .params-tab td button {
     position: absolute;
     right: 6px;
+    display: none;
+}
+
+
+.params-tab tbody tr:hover button {
+    display: inline-block !important;
 }
 
 /* =========================== Footer Section =========================== */

@@ -59,3 +59,48 @@ headersBTN.addEventListener("click", () => { handleTab(headersTab, headersBTN) }
 bodyBTN.addEventListener("click", () => { handleTab(bodyTab, bodyBTN) })
 handleTab(paramsTab, paramsBTN)
 
+
+// =======***======= Params Section =======***=======
+
+const tableBody = document.getElementById("tableBody");
+
+tableBody.addEventListener("keyup", function (e) {
+    if (e.target.classList.contains("apiInput")) {
+        const currentRow = e.target.closest("tr")
+        const isLastRow = currentRow === tableBody.lastElementChild
+        if (isLastRow && e.target.value.trim() !== "") {
+            addTableRow()
+        }
+        const deleteBtnExists = currentRow.querySelector(".deleteRowBtn");
+        if (!deleteBtnExists && e.target.value.trim() !== "") {
+            const td = currentRow.querySelector("td:last-child");
+            const deleteBtn = document.createElement("button");
+            deleteBtn.classList.add("deleteRowBtn");
+            deleteBtn.innerHTML = `<i class="fa-regular fa-trash-xmark"></i>`;
+            td.appendChild(deleteBtn);
+        }
+    }
+});
+
+function addTableRow() {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+    <td><input type="checkbox" /></td>
+    <td>
+      <input class="apiInput" type="text" placeholder="key" />
+    </td>
+    <td>
+      <input type="text" placeholder="value" />
+    </td>
+    `;
+    tableBody.appendChild(tr);
+}
+
+tableBody.addEventListener("click", function (e) {
+    if (e.target.classList[0] === "deleteRowBTN" || e.target.classList[1] === "fa-trash-xmark") {
+        const row = e.target.closest("tr");
+        if (row && row) {
+            row.remove();
+        }
+    }
+});

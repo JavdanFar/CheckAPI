@@ -41,31 +41,34 @@
               <button id="bodyBTN">Body</button>
             </nav>
 
+            <!-- ***************************** Params Section ***************************** -->
             <div class="params-tab" id="paramsTab">
               <p>Query Params</p>
-              <table>
-                <thead>
-                  <tr>
-                    <th class="col1">#</th>
-                    <th class="col2">Key</th>
-                    <th class="col3">Value</th>
-                  </tr>
-                </thead>
-                <tbody id="tableBody">
-                  <tr data-id="1">
-                    <td><input type="checkbox" /></td>
-                    <td>
-                      <input type="text" placeholder="key" />
-                    </td>
-                    <td>
-                      <input type="text" placeholder="value" />
-                      <button>
-                        <i class="fa-regular fa-trash-xmark"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="table-container">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="col1">#</th>
+                      <th class="col2">Key</th>
+                      <th class="col3">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBody">
+                    <tr>
+                      <td><input type="checkbox" /></td>
+                      <td>
+                        <input class="apiInput" type="text" placeholder="key" />
+                      </td>
+                      <td>
+                        <input type="text" placeholder="value" />
+                        <!-- <button class="deleteRowBTN">
+                          <i class="fa-regular fa-trash-xmark"></i>
+                        </button> -->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div id="headersTab">headers</div>
             <div id="bodyTab">body</div>
