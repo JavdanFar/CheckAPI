@@ -107,9 +107,9 @@ main>section {
     width: 100%;
     height: 100%;
     background-color: var(--color-foreground);
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     padding: 10px 20px;
@@ -221,17 +221,18 @@ main>section {
 .params-tab {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 
 .table-container {
     width: 100%;
-    max-height: 420px;
+    max-height: 300px;
     overflow-y: auto;
 }
 
-.params-tab p {
+.table-container>p {
     align-self: self-start;
     margin: 4px 0 12px 0;
     font-size: 14px;
@@ -326,9 +327,24 @@ main>section {
     display: none;
 }
 
-
 .params-tab tbody tr:hover button {
     display: inline-block !important;
+}
+
+.response-container {
+    width: 100%;
+    /* height: 300px; */
+    border-top: 1px solid var(--color-mist-extra);
+    overflow-y: auto;
+    position: relative;
+    bottom: 0;
+}
+
+.response-container p {
+    align-self: self-start;
+    margin: 12px 0;
+    font-size: 14px;
+    color: var(--color-text-supporting);
 }
 
 /* =========================== Footer Section =========================== */

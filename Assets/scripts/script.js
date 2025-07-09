@@ -7,7 +7,7 @@ const logo = GBI("logo")
 const theme = localStorage.getItem("theme")
 
 document.body.dataset.theme = theme || "light";
-if (theme == "dark") {
+if (theme === "dark") {
     themeIcon.classList = ("fa fa-solid fa-sun")
     logo.src = "./Assets/logo/logo-white.png"
 }
@@ -68,9 +68,16 @@ tableBody.addEventListener("keyup", function (e) {
     if (e.target.classList.contains("apiInput")) {
         const currentRow = e.target.closest("tr")
         const isLastRow = currentRow === tableBody.lastElementChild
+        currentRow.cl
+        const checkBox = currentRow.querySelector("td:first-child input[type='checkbox']")
         if (isLastRow && e.target.value.trim() !== "") {
+            checkBox.checked = true;
             addTableRow()
+        } else if (e.target.value.trim() === "" && tableBody.rows.length > 1 && !isLastRow) {
+            checkBox.checked = false;
+            currentRow.remove()
         }
+
         const deleteBtnExists = currentRow.querySelector(".deleteRowBtn");
         if (!deleteBtnExists && e.target.value.trim() !== "") {
             const td = currentRow.querySelector("td:last-child");
@@ -99,7 +106,8 @@ function addTableRow() {
 tableBody.addEventListener("click", function (e) {
     if (e.target.classList[0] === "deleteRowBTN" || e.target.classList[1] === "fa-trash-xmark") {
         const row = e.target.closest("tr");
-        if (row && row) {
+        console.log(row)
+        if (row && tableBody.rows.length > 1) {
             row.remove();
         }
     }
