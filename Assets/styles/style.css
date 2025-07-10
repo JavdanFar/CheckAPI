@@ -90,12 +90,14 @@ main {
 
 main>aside {
     width: 26%;
+    height: 100%;
     background-color: var(--color-foreground);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
 main>section {
     width: 74%;
+    height: 100%;
     display: flex;
     justify-content: center;
     padding: 30px;
@@ -107,12 +109,10 @@ main>section {
     width: 100%;
     height: 100%;
     background-color: var(--color-foreground);
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     padding: 10px 20px;
+    overflow: auto;
 }
 
 /* =========================== URL Form Section =========================== */
@@ -223,12 +223,12 @@ main>section {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    height: 380px;
 }
 
 .table-container {
     width: 100%;
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: auto;
 }
 
@@ -333,11 +333,9 @@ main>section {
 
 .response-container {
     width: 100%;
-    /* height: 300px; */
+    max-height: 200px;
     border-top: 1px solid var(--color-mist-extra);
     overflow-y: auto;
-    position: relative;
-    bottom: 0;
 }
 
 .response-container p {
