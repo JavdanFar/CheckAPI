@@ -88,14 +88,14 @@ main {
     height: calc(100vh - 110px);
 }
 
-main>aside {
+main > aside {
     width: 26%;
     height: 100%;
     background-color: var(--color-foreground);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
-main>section {
+main > section {
     width: 74%;
     height: 100%;
     display: flex;
@@ -111,8 +111,8 @@ main>section {
     background-color: var(--color-foreground);
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-    padding: 10px 20px;
-    overflow: auto;
+    padding: 10px 20px 150px 20px;
+    overflow: hidden;
 }
 
 /* =========================== URL Form Section =========================== */
@@ -190,13 +190,14 @@ main>section {
 /* =========================== Tabs Section =========================== */
 .tabs-section {
     width: 100%;
+    height: 100%;
 }
 
-.tabs-section>nav {
+.tabs-section > nav {
     border-bottom: 1px solid var(--color-mist-extra);
 }
 
-.tabs-section>nav button {
+.tabs-section > nav button {
     color: var(--color-text);
     font-size: 14px;
     margin: 2px 32px 0 0;
@@ -207,7 +208,7 @@ main>section {
     }
 }
 
-.tabs-section>div {
+.tabs-section > div {
     margin: 16px 0;
 }
 
@@ -221,18 +222,18 @@ main>section {
 .params-tab {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    height: 380px;
+    height: 100%;
 }
 
 .table-container {
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
+    min-height: 250px;
 }
 
-.table-container>p {
+.table-container > p {
     align-self: self-start;
     margin: 4px 0 12px 0;
     font-size: 14px;
@@ -252,7 +253,6 @@ main>section {
 .params-tab th,
 .params-tab td {
     border-right: 1px solid var(--color-mist-extra);
-    text-align: left;
     text-align: left;
     padding: 8px;
     font-size: 14px;
@@ -333,8 +333,8 @@ main>section {
 
 .response-container {
     width: 100%;
-    max-height: 100%;
     border-top: 1px solid var(--color-mist-extra);
+
     overflow-y: auto;
 }
 

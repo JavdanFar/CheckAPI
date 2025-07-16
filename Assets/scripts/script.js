@@ -118,36 +118,60 @@ tableBody.addEventListener("click", function (e) {
     }
 });
 
-tableBody.addEventListener("keydown", function (e) {
-    const row = e.target.closest("tr");
-})
 
 // =======***======= Params Section =======***=======
 
 const urlForm = GBI("urlForm");
 const sendBTN = GBI("sendBTN");
-const urlInput = GBI("urlInput");
+let urlInput = GBI("urlInput");
 const httpMethods = GBI("httpMethods");
 
 urlForm.onsubmit = (e) => {
     e.preventDefault();
 }
 
-sendBTN.addEventListener("click", fetchAPI)
-
 function fetchAPI(e) {
+    let response = document.getElementById("response")
+    if (urlInput.value.trim() === "") {
+        alert("Please enter a valid URL");
+        return;
+    }
+
+    sendBTN.disabled = true;
+    sendBTN.innerText = 'SENDING';
+    response.innerText = "Loading...";
+
     fetch(urlInput.value, {
         method: httpMethods.value,
     })
-        .then(response => response.json())
-        .then((json) => {
-            let response = document.getElementById("response")
-            response.innerText = JSON.stringify(json)
-        })
+        .then(response => response.text())
+        .then((res) => {
+            response.innerText = res
+        }).catch(err => response.innerText = err.message).finally(() => {
+        sendBTN.disabled = false;
+        sendBTN.innerText = 'SEND';
+    });
 };
+
+sendBTN.addEventListener("click", fetchAPI)
 
 document.onkeyup = (e) => {
     if (e.key === "Enter") {
         fetchAPI();
     }
 }
+
+
+tableBody.addEventListener("keyup", function (e) {
+    const inputs = tableBody.querySelectorAll("input[type=text]");
+    const params = [];
+    inputs.forEach((input,index) => {
+        let key = input.value
+        let value = inputs[index + 1]?.value ?? '';
+        params.push(`${key}=${value}`);
+    })
+    // let query = ``
+    // urlInput.value = query;
+    console.log(params);
+
+})
