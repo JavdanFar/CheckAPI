@@ -1,4 +1,4 @@
-import { GBI } from "./lib.js"
+import {GBI} from "./lib.js"
 
 // =======***======= DarkMode Section =======***=======
 
@@ -20,8 +20,7 @@ themeBTN.addEventListener("click", () => {
         body.theme = localStorage.getItem("theme");
         themeIcon.classList.replace("fa-sun", "fa-moon")
         logo.src = "./Assets/logo/logo-dark.png"
-    }
-    else {
+    } else {
         localStorage.setItem("theme", "dark");
         body.theme = localStorage.getItem("theme");
         themeIcon.classList.replace("fa-moon", "fa-sun")
@@ -54,9 +53,15 @@ const handleTab = function (tab, activeBTN) {
     activeBTN.classList.add("active-btn");
 }
 
-paramsBTN.addEventListener("click", () => { handleTab(paramsTab, paramsBTN) })
-headersBTN.addEventListener("click", () => { handleTab(headersTab, headersBTN) })
-bodyBTN.addEventListener("click", () => { handleTab(bodyTab, bodyBTN) })
+paramsBTN.addEventListener("click", () => {
+    handleTab(paramsTab, paramsBTN)
+})
+headersBTN.addEventListener("click", () => {
+    handleTab(headersTab, headersBTN)
+})
+bodyBTN.addEventListener("click", () => {
+    handleTab(bodyTab, bodyBTN)
+})
 handleTab(paramsTab, paramsBTN)
 
 
@@ -112,3 +117,37 @@ tableBody.addEventListener("click", function (e) {
         }
     }
 });
+
+tableBody.addEventListener("keydown", function (e) {
+    const row = e.target.closest("tr");
+})
+
+// =======***======= Params Section =======***=======
+
+const urlForm = GBI("urlForm");
+const sendBTN = GBI("sendBTN");
+const urlInput = GBI("urlInput");
+const httpMethods = GBI("httpMethods");
+
+urlForm.onsubmit = (e) => {
+    e.preventDefault();
+}
+
+sendBTN.addEventListener("click", fetchAPI)
+
+function fetchAPI(e) {
+    fetch(urlInput.value, {
+        method: httpMethods.value,
+    })
+        .then(response => response.json())
+        .then((json) => {
+            let response = document.getElementById("response")
+            response.innerText = JSON.stringify(json)
+        })
+};
+
+document.onkeyup = (e) => {
+    if (e.key === "Enter") {
+        fetchAPI();
+    }
+}

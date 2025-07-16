@@ -21,8 +21,8 @@
       <!-- ***************************** Input URL Card Section ***************************** -->
       <section>
         <div class="card-container">
-          <form class="url-form" action="">
-            <select name="methods" id="methods">
+          <form class="url-form" id="urlForm" action="">
+            <select name="httpMethods" id="httpMethods">
               <option value="get">GET</option>
               <option value="post">POST</option>
               <option value="put">PUT</option>
@@ -30,7 +30,7 @@
             </select>
 
             <input type="url" name="urlInput" id="urlInput" placeholder="Enter URL or paste text" />
-            <button type="button" id="sendUrlBTN">Send</button>
+            <button type="button" id="sendBTN">Send</button>
           </form>
 
           <!-- ***************************** Tabs Section ***************************** -->
@@ -45,7 +45,7 @@
             <div class="params-tab" id="paramsTab">
               <div class="table-container">
                 <p>Query Params</p>
-                <table>
+                <table id="paramsTable">
                   <thead>
                     <tr>
                       <th class="col1">#</th>
@@ -57,7 +57,7 @@
                     <tr>
                       <td><input type="checkbox" /></td>
                       <td>
-                        <input class="apiInput" type="text" placeholder="key" />
+                        <input class="apiInput"  type="text" placeholder="key" />
                       </td>
                       <td>
                         <input type="text" placeholder="value" />
@@ -69,9 +69,7 @@
 
               <div class="response-container">
                 <p>Response</p>
-                <div>
-                  Response
-                </div>
+                <div id="response"></div>
               </div>
             </div>
             <div id="headersTab">headers</div>
