@@ -1,4 +1,4 @@
-import {GBI} from "./lib.js"
+import { GBI } from "./lib.js"
 
 // =======***======= DarkMode Section =======***=======
 
@@ -119,7 +119,7 @@ tableBody.addEventListener("click", function (e) {
 });
 
 
-// =======***======= Params Section =======***=======
+// =======***======= Get Method Form Section =======***=======
 
 const urlForm = GBI("urlForm");
 const sendBTN = GBI("sendBTN");
@@ -148,9 +148,9 @@ function fetchAPI(e) {
         .then((res) => {
             response.innerText = res
         }).catch(err => response.innerText = err.message).finally(() => {
-        sendBTN.disabled = false;
-        sendBTN.innerText = 'SEND';
-    });
+            sendBTN.disabled = false;
+            sendBTN.innerText = 'SEND';
+        });
 };
 
 sendBTN.addEventListener("click", fetchAPI)
@@ -165,13 +165,25 @@ document.onkeyup = (e) => {
 tableBody.addEventListener("keyup", function (e) {
     const inputs = tableBody.querySelectorAll("input[type=text]");
     const params = [];
-    inputs.forEach((input,index) => {
-        let key = input.value
-        let value = inputs[index + 1]?.value ?? '';
-        params.push(`${key}=${value}`);
-    })
-    // let query = ``
-    // urlInput.value = query;
-    console.log(params);
+
+    for (let i = 0; i < inputs.length; i += 2) {
+        let apiKey = ""
+        let apiValue = ""
+        if (inputs[i] !== "") {
+            apiKey = inputs[i].value
+        }
+        if (inputs[i + 1] !== "") {
+            apiValue = inputs[i + 1].value
+        }
+
+        if (apiKey !== "") {
+            let sign = (params.length === 0) ? "?" : "&"
+            params.push(sign + apiKey + "=" + apiValue)
+        }
+    }
+
+    const baseUrl = urlInput.value.split("?")[0];
+
+    urlInput.value = baseUrl + params.join("");
 
 })
