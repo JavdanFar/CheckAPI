@@ -1,4 +1,4 @@
-import { GBI } from "./lib.js"
+import {GBI} from "./lib.js"
 
 // =======***======= DarkMode Section =======***=======
 
@@ -73,7 +73,6 @@ tableBody.addEventListener("keyup", function (e) {
     if (e.target.classList.contains("apiInput")) {
         const currentRow = e.target.closest("tr")
         const isLastRow = currentRow === tableBody.lastElementChild
-        currentRow.cl
         const checkBox = currentRow.querySelector("td:first-child input[type='checkbox']")
         if (isLastRow && e.target.value.trim() !== "") {
             checkBox.checked = true;
@@ -114,6 +113,7 @@ tableBody.addEventListener("click", function (e) {
         console.log(row)
         if (row && tableBody.rows.length > 1) {
             row.remove();
+            makeQuery()
         }
     }
 });
@@ -162,7 +162,9 @@ document.onkeyup = (e) => {
 }
 
 
-tableBody.addEventListener("keyup", function (e) {
+tableBody.addEventListener("keyup", makeQuery)
+
+function makeQuery() {
     const inputs = tableBody.querySelectorAll("input[type=text]");
     const params = [];
 
@@ -185,5 +187,4 @@ tableBody.addEventListener("keyup", function (e) {
     const baseUrl = urlInput.value.split("?")[0];
 
     urlInput.value = baseUrl + params.join("");
-
-})
+}

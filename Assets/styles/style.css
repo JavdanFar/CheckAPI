@@ -113,6 +113,7 @@ main > section {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     padding: 10px 20px 150px 20px;
     overflow: hidden;
+    overflow-y: auto;
 }
 
 /* =========================== URL Form Section =========================== */
@@ -247,6 +248,7 @@ main > section {
     border-spacing: 0;
     border-radius: 8px;
     overflow: hidden;
+    overflow-y: auto;
     color: var(--color-text);
 }
 
