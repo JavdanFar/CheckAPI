@@ -67,17 +67,17 @@ handleTab(paramsTab, paramsBTN)
 
 // =======***======= Params Section =======***=======
 
-const tableBody = document.getElementById("tableBody");
+const paramsTableBody = document.getElementById("paramsTableBody");
 
-tableBody.addEventListener("keyup", function (e) {
+paramsTableBody.addEventListener("keyup", function (e) {
     if (e.target.classList.contains("apiInput")) {
         const currentRow = e.target.closest("tr")
-        const isLastRow = currentRow === tableBody.lastElementChild
+        const isLastRow = currentRow === paramsTableBody.lastElementChild
         const checkBox = currentRow.querySelector("td:first-child input[type='checkbox']")
         if (isLastRow && e.target.value.trim() !== "") {
             checkBox.checked = true;
             addTableRow()
-        } else if (e.target.value.trim() === "" && tableBody.rows.length > 1 && !isLastRow) {
+        } else if (e.target.value.trim() === "" && paramsTableBody.rows.length > 1 && !isLastRow) {
             checkBox.checked = false;
             currentRow.remove()
         }
@@ -104,14 +104,14 @@ function addTableRow() {
       <input type="text" placeholder="value" />
     </td>
     `;
-    tableBody.appendChild(tr);
+    paramsTableBody.appendChild(tr);
 }
 
-tableBody.addEventListener("click", function (e) {
+paramsTableBody.addEventListener("click", function (e) {
     if (e.target.classList[0] === "deleteRowBTN" || e.target.classList[1] === "fa-trash-xmark") {
         const row = e.target.closest("tr");
         console.log(row)
-        if (row && tableBody.rows.length > 1) {
+        if (row && paramsTableBody.rows.length > 1) {
             row.remove();
             makeQuery()
         }
@@ -131,7 +131,7 @@ urlForm.onsubmit = (e) => {
 }
 
 function fetchAPI(e) {
-    let response = document.getElementById("response")
+    let paramsResponse = document.getElementById("paramsResponse")
     if (urlInput.value.trim() === "") {
         alert("Please enter a valid URL");
         return;
@@ -139,15 +139,15 @@ function fetchAPI(e) {
 
     sendBTN.disabled = true;
     sendBTN.innerText = 'SENDING';
-    response.innerText = "Loading...";
+    paramsResponse.innerText = "Loading...";
 
     fetch(urlInput.value, {
         method: httpMethods.value,
     })
         .then(response => response.text())
         .then((res) => {
-            response.innerText = res
-        }).catch(err => response.innerText = err.message).finally(() => {
+            paramsResponse.innerText = res
+        }).catch(err => paramsResponse.innerText = err.message).finally(() => {
             sendBTN.disabled = false;
             sendBTN.innerText = 'SEND';
         });
@@ -162,10 +162,10 @@ document.onkeyup = (e) => {
 }
 
 
-tableBody.addEventListener("keyup", makeQuery)
+paramsTableBody.addEventListener("keyup", makeQuery)
 
 function makeQuery() {
-    const inputs = tableBody.querySelectorAll("input[type=text]");
+    const inputs = paramsTableBody.querySelectorAll("input[type=text]");
     const params = [];
 
     for (let i = 0; i < inputs.length; i += 2) {

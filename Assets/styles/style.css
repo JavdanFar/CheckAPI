@@ -219,8 +219,8 @@ main > section {
 }
 
 
-/* =========================== Params Tabs Section =========================== */
-.params-tab {
+/* =========================== key-value-table Section =========================== */
+.key-value-table {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -242,7 +242,7 @@ main > section {
     color: var(--color-text-supporting);
 }
 
-.params-tab table {
+.key-value-table table {
     width: 100%;
     border: 1px solid var(--color-mist-extra);
     border-spacing: 0;
@@ -252,42 +252,42 @@ main > section {
     color: var(--color-text);
 }
 
-.params-tab th,
-.params-tab td {
+.key-value-table th,
+.key-value-table td {
     border-right: 1px solid var(--color-mist-extra);
     text-align: left;
     padding: 8px;
     font-size: 14px;
 }
 
-.params-tab th:last-child,
-.params-tab td:last-child {
+.key-value-table th:last-child,
+.key-value-table td:last-child {
     border-right: none;
 }
 
-.params-tab td {
+.key-value-table td {
     padding: 6px;
 }
 
-.params-tab td:first-child {
+.key-value-table td:first-child {
     text-align: center;
 }
 
-.params-tab input[type="checkbox"] {
+.key-value-table input[type="checkbox"] {
     transform: scale(1.2);
     cursor: pointer;
     filter: grayscale();
 }
 
-.params-tab thead {
+.key-value-table thead {
     background-color: var(--bg-primary) !important;
 }
 
-.params-tab tbody tr:nth-child(even) {
+.key-value-table tbody tr:nth-child(even) {
     background-color: var(--color-foreground-extra);
 }
 
-.params-tab tbody tr:hover {
+.key-value-table tbody tr:hover {
     background-color: var(--color-mist-extra);
 }
 
@@ -301,7 +301,7 @@ main > section {
     }
 }
 
-.params-tab input {
+.key-value-table input {
     background-color: transparent;
     width: 100%;
 }
@@ -319,17 +319,17 @@ main > section {
     width: 70%;
 }
 
-.params-tab td:last-child {
+.key-value-table td:last-child {
     position: relative;
 }
 
-.params-tab td button {
+.key-value-table td button {
     position: absolute;
     right: 6px;
     display: none;
 }
 
-.params-tab tbody tr:hover button {
+.key-value-table tbody tr:hover button {
     display: inline-block !important;
 }
 
@@ -345,6 +345,42 @@ main > section {
     margin: 12px 0;
     font-size: 14px;
     color: var(--color-text-supporting);
+}
+
+/* =========================== Body Section =========================== */
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 50px;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid #555;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:checked + label::before {
+    background-color: #007bff;
+    box-shadow: inset 0 0 0 3px white;
+    border-color: #007bff;
 }
 
 /* =========================== Footer Section =========================== */
