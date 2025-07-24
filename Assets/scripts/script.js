@@ -1,4 +1,4 @@
-import {GBI} from "./lib.js"
+import { GBI } from "./lib.js"
 
 // =======***======= DarkMode Section =======***=======
 
@@ -67,7 +67,7 @@ handleTab(paramsTab, paramsBTN)
 
 // =======***======= Params Section =======***=======
 
-const paramsTableBody = document.getElementById("paramsTableBody");
+const paramsTableBody = GBI("paramsTableBody");
 
 paramsTableBody.addEventListener("keyup", function (e) {
     if (e.target.classList.contains("apiInput")) {
@@ -131,7 +131,7 @@ urlForm.onsubmit = (e) => {
 }
 
 function fetchAPI(e) {
-    let paramsResponse = document.getElementById("paramsResponse")
+    let paramsResponse = GBI("paramsResponse")
     if (urlInput.value.trim() === "") {
         alert("Please enter a valid URL");
         return;
@@ -188,3 +188,43 @@ function makeQuery() {
 
     urlInput.value = baseUrl + params.join("");
 }
+
+// =======***======= Radio Section =======***=======
+
+// const noneRadio = GBI("noneRadio")
+// const formDataRadio = GBI("formDataRadio")
+// const jsonRadio = GBI("jsonRadio")
+
+const nonePage = GBI("nonePage")
+const formDataPage = GBI("formDataPage")
+const jsonPage = GBI("jsonPage")
+
+let radios = document.getElementsByName("bodyRadio")
+radios.forEach((radio) => {
+    radio.addEventListener("input", function (e) {
+        switch (e.target.id) {
+            case "noneRadio":
+                nonePage.style.display = "block"
+                formDataPage.style.display = "none"
+                jsonPage.style.display = "none"
+                break;
+
+            case "formDataRadio":
+                nonePage.style.display = "none"
+                formDataPage.style.display = "block"
+                jsonPage.style.display = "none"
+                break;
+
+            case "jsonRadio":
+                nonePage.style.display = "none"
+                formDataPage.style.display = "none"
+                jsonPage.style.display = "block"
+                break;
+
+            default:
+                nonePage.style.display = "block"
+                formDataPage.style.display = "none"
+                jsonPage.style.display = "none"
+        }
+    })
+})

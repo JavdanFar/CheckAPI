@@ -1,150 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="./Assets/styles/style.css"/>
-    <link rel="stylesheet" href="./Assets/icons/css/all.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/styles/style.css" />
+    <link rel="stylesheet" href="./Assets/icons/css/all.css" />
     <title>CheckAPI</title>
-</head>
-<body data-theme="">
-<!-- ***************************** Header Section ***************************** -->
-<header>
-    <h1>Check API</h1>
-    <button id="themeBTN">
+  </head>
+  <body data-theme="">
+    <!-- ***************************** Header Section ***************************** -->
+    <header>
+      <h1>Check API</h1>
+      <button id="themeBTN">
         <i id="themeIcon" class="fa fa-solid fa-moon"></i>
-    </button>
-</header>
+      </button>
+    </header>
 
-<main>
-    <aside></aside>
-    <!-- ***************************** Input URL Card Section ***************************** -->
-    <section>
+    <main>
+      <aside></aside>
+      <!-- ***************************** Input URL Card Section ***************************** -->
+      <section>
         <div class="card-container">
-            <form class="url-form" id="urlForm" action="">
-                <select name="httpMethods" id="httpMethods">
-                    <option value="get">GET</option>
-                    <option value="post">POST</option>
-                    <option value="put">PUT</option>
-                    <option value="delete">DELETE</option>
-                </select>
+          <form class="url-form" id="urlForm" action="">
+            <select name="httpMethods" id="httpMethods">
+              <option value="get">GET</option>
+              <option value="post">POST</option>
+              <option value="put">PUT</option>
+              <option value="delete">DELETE</option>
+            </select>
 
-                <input type="url" name="urlInput" id="urlInput" placeholder="Enter URL or paste text"/>
-                <button type="button" id="sendBTN">Send</button>
-            </form>
+            <input type="url" name="urlInput" id="urlInput" placeholder="Enter URL or paste text" />
+            <button type="button" id="sendBTN">Send</button>
+          </form>
 
-            <!-- ***************************** Tabs Section ***************************** -->
-            <div class="tabs-section">
-                <nav>
-                    <button id="paramsBTN">Params</button>
-                    <button id="headersBTN">Headers</button>
-                    <button id="bodyBTN">Body</button>
-                </nav>
-
-                <!-- ***************************** Params Section ***************************** -->
-                <div class="key-value-table" id="paramsTab">
-                    <div class="table-container">
-                        <p>Query Params</p>
-                        <table id="paramsTable">
-                            <thead>
-                            <tr>
-                                <th class="col1">#</th>
-                                <th class="col2">Key</th>
-                                <th class="col3">Value</th>
-                            </tr>
-                            </thead>
-                            <tbody id="paramsTableBody">
-                            <tr>
-                                <td><input type="checkbox"/></td>
-                                <td>
-                                    <input class="apiInput" type="text" placeholder="key"/>
-                                </td>
-                                <td>
-                                    <input type="text" placeholder="value"/>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="response-container">
-                        <p>Response</p>
-                        <div id="paramsResponse"></div>
-                    </div>
-                </div>
-
-                <div class="key-value-table" id="headersTab">
-                    <div class="table-container">
-                        <p>Headers</p>
-                        <table id="headersTable">
-                            <thead>
-                            <tr>
-                                <th class="col1">#</th>
-                                <th class="col2">Key</th>
-                                <th class="col3">Value</th>
-                            </tr>
-                            </thead>
-                            <tbody id="headersTableBody">
-                            <tr>
-                                <td><input type="checkbox"/></td>
-                                <td>
-                                    <input class="apiInput" type="text" placeholder="key"/>
-                                </td>
-                                <td>
-                                    <input type="text" placeholder="value"/>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div id="bodyTab">
-                    <div>
-                        <div>
-                            <label class="RadioButton">
-                                <input type="radio" name="bodyTabRadio" id="noneTab" value="noneTab" checked>
-                                <span class="circle"></span>
-                                <div>none</div>
-                            </label>
-                        </div>
-
-                        <div>
-                            <label>
-                                <input type="radio" name="bodyTabRadio" id="formDataTab" value="formDataTab" checked>
-                                <span class="circle"></span>
-                                <div>form-data</div>
-                            </label>
-                        </div>
-
-                        <div>
-                            <label>
-                                <input type="radio" name="bodyTabRadio" id="jsonTab" value="jsonTab" checked>
-                                <span class="circle"></span>
-                                <div>JSON</div>
-                            </label>
-                        </div>
-
-                    </div>
-                </div>
+          <!-- ***************************** Tabs Section ***************************** -->
+          <div class="tabs-section">
+            <nav>
+              <button id="paramsBTN">Params</button>
+              <button id="headersBTN">Headers</button>
+              <button id="bodyBTN">Body</button>
+            </nav>
+            
+            <!-- ***************************** Params Section ***************************** -->
+            <div class="key-value-table" id="paramsTab">
+              <div class="table-container">
+                <p>Query Params</p>
+                <table id="paramsTable">
+                  <thead>
+                    <tr>
+                      <th class="col1">#</th>
+                      <th class="col2">Key</th>
+                      <th class="col3">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody id="paramsTableBody">
+                    <tr>
+                      <td><input type="checkbox" /></td>
+                      <td>
+                        <input class="apiInput" type="text" placeholder="key" />
+                      </td>
+                      <td>
+                        <input type="text" placeholder="value" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
+            
+            <div class="key-value-table" id="headersTab">
+              <div class="table-container">
+                <p>Headers</p>
+                <table id="headersTable">
+                  <thead>
+                    <tr>
+                      <th class="col1">#</th>
+                      <th class="col2">Key</th>
+                      <th class="col3">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody id="headersTableBody">
+                    <tr>
+                      <td><input type="checkbox" /></td>
+                      <td>
+                        <input class="apiInput" type="text" placeholder="key" />
+                      </td>
+                      <td>
+                        <input type="text" placeholder="value" />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="body-tab" id="bodyTab">
+              <div class="body-tab-radios">
+                <input type="radio" id="noneRadio" name="bodyRadio" checked />
+                <label for="noneRadio">none</label>
+                
+                <input type="radio" id="formDataRadio" name="bodyRadio" />
+                <label for="formDataRadio">form-data</label>
+                
+                <input type="radio" id="jsonRadio" name="bodyRadio" />
+                <label for="jsonRadio">JSON</label>
+              </div>
+
+              <div class="body-tab-pages">
+                <div id="nonePage">This request does not have a body</div>
+
+                <div class="key-value-table" id="formDataPage">
+                  <div class="table-container">
+                    <table id="bodyTable">
+                      <thead>
+                        <tr>
+                          <th class="col1">#</th>
+                          <th class="col2">Key</th>
+                          <th class="col3">Value</th>
+                        </tr>
+                      </thead>
+                      <tbody id="bodyTableBody">
+                        <tr>
+                          <td><input type="checkbox" /></td>
+                          <td>
+                            <input class="apiInput" type="text" placeholder="key" />
+                          </td>
+                          <td>
+                            <input type="text" placeholder="value" />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                <div id="jsonPage">3</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- ***************************** Response Section ***************************** -->
+          <div class="response-section">
+            <p>Response</p>
+            <div id="paramsResponse"></div>
+          </div>
         </div>
-    </section>
-</main>
+      </section>
+    </main>
 
-<!-- ***************************** Footer Section ***************************** -->
-<footer>
-    <div class="footer-logo">
-        <img id="logo" src="./Assets/logo/logo-dark.png" height="10" alt="Logo"/>
-    </div>
+    <!-- ***************************** Footer Section ***************************** -->
+    <footer>
+      <div class="footer-logo">
+        <img id="logo" src="./Assets/logo/logo-dark.png" height="10" alt="Logo" />
+      </div>
 
-    <div class="footer-links">
+      <div class="footer-links">
         <a href="https://github.com/JavdanFar">Github</a>
 
         <p>v1.0.0</p>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script type="module" src="./Assets/scripts/script.js"></script>
-</body>
+    <script type="module" src="./Assets/scripts/script.js"></script>
+  </body>
 </html>
