@@ -96,11 +96,11 @@ paramsTableBody.addEventListener("keyup", function (e) {
 function addTableRow() {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-    <td><input type="checkbox" /></td>
-    <td>
+    <td class="col1"><input type="checkbox" /></td>
+    <td class="col2">
       <input class="apiInput" type="text" placeholder="key" />
     </td>
-    <td>
+    <td class="col3">
       <input type="text" placeholder="value" />
     </td>
     `;
@@ -155,7 +155,7 @@ function fetchAPI(e) {
 
 sendBTN.addEventListener("click", fetchAPI)
 
-document.onkeyup = (e) => {
+urlInput.onkeyup = (e) => {
     if (e.key === "Enter") {
         fetchAPI();
     }
@@ -228,3 +228,21 @@ radios.forEach((radio) => {
         }
     })
 })
+
+
+// =======***======= JSON input Section =======***=======
+const jsonInput = document.getElementById("jsonInput");
+const lineNumbers = document.getElementById("lineNumbers");
+
+function updateLineNumbers() {
+    const lines = jsonInput.value.split("\n").length;
+    let result = "";
+    for (let i = 1; i <= lines; i++) {
+        result += i + "\n";
+    }
+    lineNumbers.innerText = result;
+}
+
+jsonInput.addEventListener("input", updateLineNumbers);
+
+updateLineNumbers();

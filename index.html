@@ -40,7 +40,7 @@
               <button id="headersBTN">Headers</button>
               <button id="bodyBTN">Body</button>
             </nav>
-            
+
             <!-- ***************************** Params Section ***************************** -->
             <div class="key-value-table" id="paramsTab">
               <div class="table-container">
@@ -55,11 +55,11 @@
                   </thead>
                   <tbody id="paramsTableBody">
                     <tr>
-                      <td><input type="checkbox" /></td>
-                      <td>
+                      <td class="col1"><input type="checkbox" /></td>
+                      <td class="col2">
                         <input class="apiInput" type="text" placeholder="key" />
                       </td>
-                      <td>
+                      <td class="col3">
                         <input type="text" placeholder="value" />
                       </td>
                     </tr>
@@ -67,7 +67,7 @@
                 </table>
               </div>
             </div>
-            
+
             <div class="key-value-table" id="headersTab">
               <div class="table-container">
                 <p>Headers</p>
@@ -81,11 +81,11 @@
                   </thead>
                   <tbody id="headersTableBody">
                     <tr>
-                      <td><input type="checkbox" /></td>
-                      <td>
+                      <td class="col1"><input type="checkbox" /></td>
+                      <td class="col2">
                         <input class="apiInput" type="text" placeholder="key" />
                       </td>
-                      <td>
+                      <td class="col3">
                         <input type="text" placeholder="value" />
                       </td>
                     </tr>
@@ -93,15 +93,15 @@
                 </table>
               </div>
             </div>
-            
+
             <div class="body-tab" id="bodyTab">
               <div class="body-tab-radios">
                 <input type="radio" id="noneRadio" name="bodyRadio" checked />
                 <label for="noneRadio">none</label>
-                
+
                 <input type="radio" id="formDataRadio" name="bodyRadio" />
                 <label for="formDataRadio">form-data</label>
-                
+
                 <input type="radio" id="jsonRadio" name="bodyRadio" />
                 <label for="jsonRadio">JSON</label>
               </div>
@@ -121,11 +121,11 @@
                       </thead>
                       <tbody id="bodyTableBody">
                         <tr>
-                          <td><input type="checkbox" /></td>
-                          <td>
+                          <td class="col1"><input type="checkbox" /></td>
+                          <td class="col2">
                             <input class="apiInput" type="text" placeholder="key" />
                           </td>
-                          <td>
+                          <td class="col3">
                             <input type="text" placeholder="value" />
                           </td>
                         </tr>
@@ -133,12 +133,17 @@
                     </table>
                   </div>
                 </div>
-                
-                <div id="jsonPage">3</div>
+
+                <div id="jsonPage">
+                  <div class="json-editor">
+                    <div class="line-numbers" id="lineNumbers">1</div>
+                    <textarea id="jsonInput"></textarea>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          
+
           <!-- ***************************** Response Section ***************************** -->
           <div class="response-section">
             <p>Response</p>

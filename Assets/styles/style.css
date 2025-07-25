@@ -107,13 +107,12 @@ main>section {
 
 .card-container {
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
     background-color: var(--color-foreground);
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     padding: 10px 20px;
     overflow: hidden;
-    overflow-y: auto;
 }
 
 /* =========================== URL Form Section =========================== */
@@ -132,11 +131,9 @@ main>section {
     border-radius: 8px 0 0 8px;
     padding: 0 16px;
     transition: 0.3s;
-
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"%3E%3Cpath d="M3 4l3 3 3-3" stroke="%23B1B1B1" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E');
     background-position: right 8px center;
     background-repeat: no-repeat;
@@ -191,7 +188,7 @@ main>section {
 /* =========================== Tabs Section =========================== */
 .tabs-section {
     width: 100%;
-    /* height: 100%; */
+    height: 200px;
 }
 
 .tabs-section>nav {
@@ -224,13 +221,28 @@ main>section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* height: 100%; */
+    height: 100%;
 }
 
 .table-container {
     width: 100%;
-    overflow-y: auto;
-    /* min-height: 250px; */
+    /* overflow-y: auto; */
+}
+
+.key-value-table thead {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-primary) !important;
+    z-index: 1;
+}
+
+.key-value-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 .table-container>p {
@@ -247,9 +259,24 @@ main>section {
     border-spacing: 0;
     border-radius: 8px;
     overflow: hidden;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     color: var(--color-text);
+    table-layout: fixed;
 }
+
+.key-value-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.key-value-table tbody {
+    display: block;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
 
 .key-value-table th,
 .key-value-table td {
@@ -332,20 +359,6 @@ main>section {
     display: inline-block !important;
 }
 
-.response-section {
-    width: 100%;
-    border-top: 1px solid var(--color-mist-extra);
-    overflow-y: auto;
-    margin-top: 100px;
-}
-
-.response-section p {
-    align-self: self-start;
-    margin: 12px 0;
-    font-size: 14px;
-    color: var(--color-text-supporting);
-}
-
 /* =========================== Body Section =========================== */
 
 input[type="radio"] {
@@ -398,10 +411,75 @@ input[type="radio"]:checked+label::before {
 
 .body-tab-pages {
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
     text-align: center;
 }
 
+/* =========================== JSON Section =========================== */
+
+#jsonPage {
+    width: 100%;
+}
+
+.json-editor {
+    display: flex;
+    width: 100%;
+    height: 180px;
+    border: 1px solid var(--color-mist-extra);
+    border-radius: 6px;
+    font-family: monospace;
+    background-color: var(--color-foreground-extra);
+    line-height: 1.5;
+    overflow-y: auto;
+}
+
+.line-numbers {
+    height: 100%;
+    color: var(--color-text-supporting);
+    padding: 6px;
+    user-select: none;
+    white-space: pre;
+    font-family: monospace;
+    line-height: 1.5;
+    font-size: 14px;
+    outline: 0;
+}
+
+#jsonInput {
+    width: 100%;
+    padding: 6px 16px;
+    border: none;
+    resize: none;
+    white-space: pre;
+    background-color: transparent;
+    font-family: monospace;
+    line-height: 1.5;
+    font-size: 14px;
+    color: var(--color-text);
+    outline: 0;
+}
+
+/* =========================== Response Section =========================== */
+
+.response-section {
+    width: 100%;
+    height: 240px;
+    border-top: 1px solid var(--color-mist-extra);
+    margin-top: 80px;
+}
+
+.response-section p {
+    align-self: self-start;
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--color-text-supporting);
+}
+
+.response-section div {
+    height: 85%;
+    overflow: hidden;
+    overflow-y: auto;
+}
 
 /* =========================== Footer Section =========================== */
 
